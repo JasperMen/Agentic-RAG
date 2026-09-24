@@ -1,0 +1,5 @@
+graph LR
+    A["文件上传"] --> B["ParseService<br/>文本分块"]
+    B --> C["EmbeddingClient<br/>调用外部模型生成 2048 维向量"]
+    C --> D["ElasticsearchService<br/>bulkIndex 批量写入"]
+    D --> E[("knowledge_base<br/>索引<br/>textContent + vector")]
